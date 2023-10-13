@@ -1,0 +1,33 @@
+<.header>
+  Category <%= @category.id %>
+  <:subtitle>This is a category record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/category/#{@category}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit category</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Slug"><%= @category.slug %></:item>
+  <:item title="Title"><%= @category.title %></:item>
+  <:item title="Description"><%= @category.description %></:item>
+</.list>
+
+<.back navigate={~p"/category"}>Back to category</.back>
+
+<.modal
+  :if={@live_action == :edit}
+  id="category-modal"
+  show
+  on_cancel={JS.patch(~p"/category/#{@category}")}
+>
+  <.live_component
+    module={BlogWeb.CategoryLive.FormComponent}
+    id={@category.id}
+    title={@page_title}
+    action={@live_action}
+    category={@category}
+    patch={~p"/category/#{@category}"}
+  />
+</.modal>
