@@ -2,7 +2,7 @@ defmodule BlogWeb.HomepageLive.Index do
   use BlogWeb, :live_view
 
   def mount(_params, _session, socket) do
-    {:ok, socket, layout: false}
+    {:ok, socket, layout: {BlogWeb.Layouts, :home}}
   end
 
   def handle_params(params, _url, socket) do
