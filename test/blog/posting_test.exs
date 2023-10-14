@@ -149,12 +149,16 @@ defmodule Blog.PostingTest do
       post_category = post_category_fixture()
       update_attrs = %{}
 
-      assert {:ok, %PostCategory{} = post_category} = Posting.update_post_category(post_category, update_attrs)
+      assert {:ok, %PostCategory{} = post_category} =
+               Posting.update_post_category(post_category, update_attrs)
     end
 
     test "update_post_category/2 with invalid data returns error changeset" do
       post_category = post_category_fixture()
-      assert {:error, %Ecto.Changeset{}} = Posting.update_post_category(post_category, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Posting.update_post_category(post_category, @invalid_attrs)
+
       assert post_category == Posting.get_post_category!(post_category.id)
     end
 

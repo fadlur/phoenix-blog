@@ -3,7 +3,6 @@ defmodule Blog.Posting.PostCategory do
   import Ecto.Changeset
 
   schema "post_category" do
-
     field :post_id, :id
     field :category_id, :id
 

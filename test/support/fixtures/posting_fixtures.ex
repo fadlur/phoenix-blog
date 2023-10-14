@@ -26,9 +26,7 @@ defmodule Blog.PostingFixtures do
   def post_tag_fixture(attrs \\ %{}) do
     {:ok, post_tag} =
       attrs
-      |> Enum.into(%{
-
-      })
+      |> Enum.into(%{})
       |> Blog.Posting.create_post_tag()
 
     post_tag
@@ -40,9 +38,7 @@ defmodule Blog.PostingFixtures do
   def post_category_fixture(attrs \\ %{}) do
     {:ok, post_category} =
       attrs
-      |> Enum.into(%{
-
-      })
+      |> Enum.into(%{})
       |> Blog.Posting.create_post_category()
 
     post_category

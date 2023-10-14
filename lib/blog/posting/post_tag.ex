@@ -3,7 +3,6 @@ defmodule Blog.Posting.PostTag do
   import Ecto.Changeset
 
   schema "post_tag" do
-
     field :post_id, :id
     field :tag_id, :id
 
